@@ -1,0 +1,4 @@
+{
+    "api": "https://localhost:8080/api",
+    "images": "https://localhost:8080/images"
+}

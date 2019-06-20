@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" height="39" viewBox="0 0 31 39">
+  <defs>
+    <path id="role-insignia-active-b" d="M14.6280511,14.2556891 L3.80986108,23.6314537 C2.97514996,24.35487 1.71203813,24.2646478 0.988621834,23.4299366 C0.673480272,23.0663118 0.5,22.6012588 0.5,22.1200756 L0.5,4.87992443 C0.5,3.77535493 1.3954305,2.87992443 2.5,2.87992443 C2.98118318,2.87992443 3.4462362,3.0534047 3.80986108,3.36854627 L14.6280511,12.7443109 C15.0454066,13.1060191 15.0905178,13.737575 14.7288096,14.1549305 C14.6976621,14.19087 14.6639905,14.2245416 14.6280511,14.2556891 Z"/>
+    <filter id="role-insignia-active-a" width="286.6%" height="227.1%" x="-93.3%" y="-63.6%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4.5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+  </defs>
+  <g fill="none" transform="translate(8 6)">
+    <path fill="#FFF" d="M2.5,4.87992443 L2.5,22.1200756 L12.446241,13.5 L2.5,4.87992443 Z M14.6280511,14.2556891 L3.80986108,23.6314537 C2.97514996,24.35487 1.71203813,24.2646478 0.988621834,23.4299366 C0.673480272,23.0663118 0.5,22.6012588 0.5,22.1200756 L0.5,4.87992443 C0.5,3.77535493 1.3954305,2.87992443 2.5,2.87992443 C2.98118318,2.87992443 3.4462362,3.0534047 3.80986108,3.36854627 L14.6280511,12.7443109 C15.0454066,13.1060191 15.0905178,13.737575 14.7288096,14.1549305 C14.6976621,14.19087 14.6639905,14.2245416 14.6280511,14.2556891 Z"/>
+    <use fill="#000" filter="url(#role-insignia-active-a)" xlink:href="#role-insignia-active-b"/>
+    <use fill="#FFF" fill-opacity=".7" xlink:href="#role-insignia-active-b"/>
+  </g>
+</svg>
