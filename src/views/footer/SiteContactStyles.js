@@ -26,6 +26,7 @@ class SiteContactStyles {
 
     Item () {
         return css`
+            cursor: pointer;
             margin-right: 1rem;
             user-select: none;
 
