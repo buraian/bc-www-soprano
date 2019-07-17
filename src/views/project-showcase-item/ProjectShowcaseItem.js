@@ -61,7 +61,7 @@ export default {
     view: function (vnode) {
         const { image } = vnode.attrs
 
-        return <li className={styles.Wrapper()} key={image._id}>
+        return <li className={styles.Wrapper()}>
             <img className={styles.Image()} src={`${paths.images.filename(image.filename)}`} />
         </li>
     },

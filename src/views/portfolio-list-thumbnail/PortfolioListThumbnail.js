@@ -1,4 +1,5 @@
 import m from 'mithril'
+import { Link } from 'mithril/route'
 import massageRole from 'Helpers/massageRole'
 import paths from 'Helpers/portfolioApiPaths'
 import slugify from 'underscore.string/slugify'
@@ -12,10 +13,8 @@ export default {
         const imgPath = paths.images.filename(screen.filename + '-sm', screen.ext)
 
         return (
-            <a
-                key={screen._id}
+            <Link
                 href={`/portfolio/${project._id}/${screen._id}/`}
-                oncreate={m.route.link}
                 className={`${cssClasses} ${styles.Wrapper()}`}
                 data-project={project._id}
                 data-roles={project.roles.map(role => slugify(massageRole(role))).join(' ')}
@@ -24,7 +23,7 @@ export default {
                     backgroundImage: `url('${imgPath}')`,
                 }}>
                 <img src={imgPath} style={{ display: 'none' }} />
-            </a>
+            </Link>
         )
     },
 }

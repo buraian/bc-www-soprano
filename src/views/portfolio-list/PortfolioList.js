@@ -107,7 +107,6 @@ export default {
                         filteredIn={isFilteredIn(project)}
                         project={project}
                         projectNo={i + 1}
-                        key={project._id}
                         oncreate={listItemOnCreate}
                         onbeforeupdate={listItemOnBeforeUpdate}
                         onupdate={listItemOnUpdate}
@@ -120,7 +119,6 @@ export default {
                             filteredIn={isFilteredIn(project)}
                             project={project}
                             screen={image}
-                            key={image._id}
                             oncreate={listItemOnCreate}
                             onbeforeupdate={listItemOnBeforeUpdate}
                             onupdate={listItemOnUpdate}

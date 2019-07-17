@@ -30,8 +30,8 @@ let animate = {
 
 function renderRoles (project) {
     return <div className={cx(styles.Body(), styles.Roles())}>
-        {Portfolio.projectDefaults.roles.sort().map((role, idx) =>
-            <div className={styles.RoleWrapper()} key={idx}>
+        {Portfolio.projectDefaults.roles.sort().map(role =>
+            <div className={styles.RoleWrapper()}>
 
                 {/* Ghost Element */}
                 {role !== 'Layout' || project.roles.includes('Layout')
@@ -103,7 +103,7 @@ export default {
                         <div className={cx(styles.Body(), styles.Feature())}>
                             {project.features.sort().map((feature, idx, array) => {
                                 let separator = idx !== array.length - 1 ? ', ' : null
-                                return <span key={idx}>{massageRole(feature)}{separator}</span>
+                                return <span>{massageRole(feature)}{separator}</span>
                             })}
                         </div>
                     </div>
@@ -125,7 +125,7 @@ export default {
                         <div className={cx(styles.Body(), styles.Tech())}>
                             {project.techs.sort().map((tech, idx, array) => {
                                 let separator = idx !== array.length - 1 ? ', ' : null
-                                return <span key={idx}>{massageRole(tech)}{separator}</span>
+                                return <span>{massageRole(tech)}{separator}</span>
                             })}
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import m from 'mithril'
+import { Link } from 'mithril/route'
 import PortfolioFilter from 'Views/portfolio-filter/PortfolioFilter'
 import Footer from 'Views/footer/Footer'
 
@@ -14,10 +15,10 @@ export default {
                 {/* Title */}
                 <header className={siteNameStyles.Wrapper()}>
                     <div className={siteNameStyles.Container()}>
-                        <a className={siteNameStyles.NameWrapper()} href="/" oncreate={m.route.link}>
+                        <Link className={siteNameStyles.NameWrapper()} href="/">
                             <div className={siteNameStyles.NameFirstname()}>Brian</div>
                             <div className={siteNameStyles.NameLastname()}>Clark</div>
-                        </a>
+                        </Link>
                         <div className={siteNameStyles.TitleWrapper()}>
                             <div className={siteNameStyles.TitleOne()}>Designer <span>&</span></div>
                             <div className={siteNameStyles.TitleTwo()}>Developer</div>

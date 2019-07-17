@@ -1,4 +1,5 @@
 import m from 'mithril'
+import { Link } from 'mithril/route'
 import Portfolio from 'Models/Portfolio'
 import anime from 'animejs'
 import { cx } from 'emotion'
@@ -165,13 +166,12 @@ export default {
             </button>
 
             {/* Close Button */}
-            <a
+            <Link
                 href="/portfolio/"
-                oncreate={m.route.link}
                 className={cx(styles.Button(), styles.Item(), styles.Close())}>
                 {m.trust(buttonClose)}
                 &times;
-            </a>
+            </Link>
 
             {/* Screen Progress Bar */}
             <div className={styles.ScreenProgressWrapper()}>

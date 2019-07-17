@@ -73,7 +73,7 @@ export default {
                 ? <div className="ProjectViewer-loading--wrapper">
                     <div className="ProjectViewer-loading">Loading...</div>
                 </div>
-                : <div className={styles.Container()} key={`${project._id}`}>
+                : <div className={styles.Container()}>
                     <ProjectOverview project={project} />
                     <ProjectShowcase project={project} screenId={vnode.attrs.screenId} />
                 </div>

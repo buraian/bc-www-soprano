@@ -6,7 +6,7 @@
   },
   "version": "0.1.0",
   "private": true,
-	"main": "./server/main.js",
+  "main": "./server/main.js",
   "scripts": {
     "start": "node server.js",
     "dev": "webpack-dev-server --config webpack.dev.js",
@@ -17,7 +17,7 @@
   "dependencies": {
     "animejs": "3.0.1",
     "emotion": "10.0.9",
-    "mithril": "2.0.0-rc.6",
+    "mithril": "2.0.0-rc.9",
     "tinycolor2": "1.4.1",
     "underscore.string": "3.3.5"
   },

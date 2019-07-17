@@ -1,4 +1,5 @@
 import m from 'mithril'
+import { Link } from 'mithril/route'
 import massageRole from 'Helpers/massageRole'
 import padLeft from 'Helpers/padLeft'
 import replaceSVGFill from 'Helpers/replaceSvgFill'
@@ -13,9 +14,8 @@ export default {
     view: function (vnode) {
         const { cssClasses, project, projectNo } = vnode.attrs
 
-        return <a
+        return <Link
             href={`/portfolio/${project._id}/`}
-            oncreate={m.route.link}
             className={`${cssClasses} ${styles.Wrapper()}`}
             data-project={project._id}
             data-roles={project.roles.map(role => slugify(massageRole(role))).join(' ')}
@@ -23,8 +23,7 @@ export default {
             style={{
                 color: project.colors.primary,
                 backgroundColor: project.colors.dominant,
-            }}
-            key={project._id}>
+            }}>
 
             {/* Project Number */}
             <div className={styles.Counter()}>{padLeft(projectNo, '00')}</div>
@@ -44,6 +43,6 @@ export default {
             <div className={styles.Decorator()}>
                 {m.trust(replaceSVGFill(decorator, project.colors.primary))}
             </div>
-        </a>
+        </Link>
     },
 }
