@@ -191,7 +191,10 @@ class Portfolio {
             }
         }
         else {
-            return `/portfolio/${dest.projectId}/${dest.screenId}/`
+            return m.buildPathname('/portfolio/:projectId/:screenId/', {
+                projectId: dest.projectId,
+                screenId: dest.screenId,
+            })
         }
     }
 
