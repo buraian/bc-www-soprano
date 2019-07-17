@@ -23,6 +23,9 @@ let animate = {
                 vnode.dom.style.display = 'block'
                 vnode.dom.style.visibility = 'visible'
             },
+            changeComplete: function () {
+                vnode.dom.style.overflowY = 'auto'
+            },
         })
     },
     componentExit: function (vnode) {
@@ -33,6 +36,9 @@ let animate = {
             easing: 'easeInQuad',
             duration: this.componentExitSpeed,
             loop: false,
+            changeBegin: function () {
+                vnode.dom.style.overflowY = 'hidden'
+            },
             complete: function () {
                 vnode.dom.style.removeProperty('visibility')
                 vnode.dom.style.display = 'none'
