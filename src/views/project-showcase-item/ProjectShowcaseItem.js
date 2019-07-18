@@ -11,6 +11,13 @@ let animate = {
     componentEnterDelay: 500,
     componentExitSpeed: 300,
     componentEnter: function (vnode) {
+        const begin = function () {
+            vnode.dom.style.display = 'block'
+            vnode.dom.style.visibility = 'visible'
+        }
+        const complete = function () {
+            vnode.dom.style.overflowY = 'auto'
+        }
         anime({
             targets: vnode.dom,
             opacity: [0, 1],
@@ -19,16 +26,20 @@ let animate = {
             duration: this.componentEnterSpeed,
             loop: false,
             delay: this.componentEnterDelay,
-            changeBegin: function () {
-                vnode.dom.style.display = 'block'
-                vnode.dom.style.visibility = 'visible'
-            },
-            changeComplete: function () {
-                vnode.dom.style.overflowY = 'auto'
-            },
+            begin: begin,
+            changeBegin: begin,
+            complete: complete,
+            changeComplete: complete,
         })
     },
     componentExit: function (vnode) {
+        const begin = function () {
+            vnode.dom.style.overflowY = 'hidden'
+        }
+        const complete = function () {
+            vnode.dom.style.removeProperty('visibility')
+            vnode.dom.style.display = 'none'
+        }
         anime({
             targets: vnode.dom,
             opacity: [1, 0],
@@ -36,13 +47,10 @@ let animate = {
             easing: 'easeInQuad',
             duration: this.componentExitSpeed,
             loop: false,
-            changeBegin: function () {
-                vnode.dom.style.overflowY = 'hidden'
-            },
-            complete: function () {
-                vnode.dom.style.removeProperty('visibility')
-                vnode.dom.style.display = 'none'
-            },
+            begin: begin,
+            changeBegin: begin,
+            complete: complete,
+            changeComplete: complete,
         })
     },
 }
@@ -55,6 +63,8 @@ export default {
         }
     },
     onbeforeupdate: function (vnode, old) {
+        if (vnode.attrs.isActive && old.attrs.isActive) return false
+
         if (old.attrs.isActive) {
             animate.componentExit(old)
         }
