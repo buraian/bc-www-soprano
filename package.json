@@ -15,9 +15,9 @@
     "server": "nodemon -w './server/**/*.*' ./server/main.js"
   },
   "dependencies": {
-    "animejs": "3.0.1",
+    "animejs": "3.1.0",
     "emotion": "10.0.9",
-    "mithril": "2.0.0-rc.9",
+    "mithril": "2.0.1",
     "tinycolor2": "1.4.1",
     "underscore.string": "3.3.5"
   },
