@@ -8,11 +8,11 @@
   "private": true,
   "main": "./server/main.js",
   "scripts": {
-    "start": "node server.js",
     "dev": "webpack-dev-server --config webpack.dev.js",
     "dev:dashboard": "webpack-dashboard -- webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "server": "nodemon -w './server/**/*.*' ./server/main.js"
+    "server": "nodemon -w './server/**/*.*' ./server/main.js",
+    "test": "npm run build && npm run server"
   },
   "dependencies": {
     "animejs": "3.1.0",
