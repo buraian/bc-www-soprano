@@ -15,18 +15,18 @@ import './globalStyles.js'
 
 m.route(document.body, '/portfolio/', {
     '/portfolio/': {
-        render: function () {
+        render: () => {
             return m(Layout, m(PortfolioList))
         },
     },
     '/portfolio/:projectId/': {
-        onmatch: function (args) {
+        onmatch: args => {
             const project = Portfolio.getProjectById(args.projectId)
             m.route.set(`/portfolio/${project._id}/${project.images[0]._id}/`)
         },
     },
     '/portfolio/:projectId/:screenId/': {
-        render: function (vnode) {
+        render: vnode => {
             return m(Layout, [
                 m(PortfolioList),
                 m(ProjectViewer, vnode.attrs),
@@ -35,7 +35,7 @@ m.route(document.body, '/portfolio/', {
         },
     },
     '/:404/': {
-        render: function (vnode) {
+        render: vnode => {
             return m(Layout, m(Error404, vnode.attrs.error))
         },
     },

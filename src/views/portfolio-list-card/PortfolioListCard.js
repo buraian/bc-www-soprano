@@ -11,7 +11,7 @@ import decorator from './images/call-to-action-triangle.svg'
 
 
 export default {
-    view: function (vnode) {
+    view: vnode => {
         const { cssClasses, project, projectNo } = vnode.attrs
 
         return <Link

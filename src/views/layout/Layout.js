@@ -7,7 +7,7 @@ import styles from './MainStyles'
 
 
 export default {
-    view: function (vnode) {
+    view: vnode => {
         return m('div', [
             <Header />,
             <div className={styles.Main()} style={Portfolio.isProjectViewerActive ? { 'overflowY': 'hidden' } : '' }>

@@ -8,7 +8,7 @@ import styles from './PortfolioListThumbnailStyles'
 
 
 export default {
-    view: function (vnode) {
+    view: vnode => {
         const { cssClasses, project, screen } = vnode.attrs
         const imgPath = paths.images.filename(screen.filename + '-sm', screen.ext)
 

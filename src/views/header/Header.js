@@ -8,7 +8,7 @@ import siteNameStyles from './SiteNameStyles'
 
 
 export default {
-    view: function () {
+    view: () => {
         return (
             <div className={headerStyles.Wrapper()}>
 

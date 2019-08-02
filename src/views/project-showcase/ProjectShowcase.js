@@ -5,7 +5,7 @@ import styles from './ProjectShowcaseStyles'
 
 
 export default {
-    view: function (vnode) {
+    view: vnode => {
         const { project, screenId } = vnode.attrs
 
         return <div className={styles.Wrapper()}>

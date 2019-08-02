@@ -15,29 +15,29 @@ let animate = {
     componentFilterOutSpeed: 300,
     delayTimer: 0,
     delayIncrement: 50,
-    componentEnter: function (vnode) {
+    componentEnter: vnode => {
         anime({
             targets: vnode.dom,
             opacity: [0, 1],
             easing: 'linear',
-            duration: this.componentEnterSpeed,
+            duration: animate.componentEnterSpeed,
         })
     },
-    componentFilterIn: function (vnode, oncreate = false, delay = 0) {
+    componentFilterIn: (vnode, oncreate = false, delay = 0) => {
         anime({
             targets: vnode.dom,
             opacity: oncreate ? [0, 0.9] : [0.1, 0.9],
             easing: 'linear',
-            duration: this.componentFilterInSpeed,
-            delay: oncreate ? this.componentEnterSpeed + delay : delay,
+            duration: animate.componentFilterInSpeed,
+            delay: oncreate ? animate.componentEnterSpeed + delay : delay,
         })
     },
-    componentFilterOut: function (vnode) {
+    componentFilterOut: vnode => {
         anime({
             targets: vnode.dom,
             opacity: [0.9, 0.1],
             easing: 'linear',
-            duration: this.componentFilterOutSpeed,
+            duration: animate.componentFilterOutSpeed,
         })
     },
 }
@@ -89,10 +89,10 @@ function listItemOnUpdate (vnode) {
 
 export default {
     oninit: Portfolio.projectsLoadData(),
-    oncreate: function (vnode) {
+    oncreate: vnode => {
         animate.componentEnter(vnode)
     },
-    view: function () {
+    view: () => {
         return <div className={styles.Wrapper()}>
             {Portfolio.projectsIsFetching ? (
                 <div className="PortfolioList-loading--wrapper">

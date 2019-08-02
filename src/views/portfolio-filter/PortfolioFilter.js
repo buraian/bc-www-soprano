@@ -50,11 +50,11 @@ function watchFormChanges (vnode) {
 
 export default {
     oninit: Portfolio.projectTypesLoadData(),
-    oncreate: function (vnode) {
+    oncreate: vnode => {
         serializeFormData(vnode)
         watchFormChanges(vnode)
     },
-    view: function () {
+    view: () => {
         return <section className={styles.Wrapper()}>
             <form className={styles.Form()}>
                 <legend className={styles.Title()}><span>Filters</span></legend>

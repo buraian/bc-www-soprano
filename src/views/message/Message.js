@@ -1,3 +1,5 @@
+// TODO: Finish Message
+
 import m from 'mithril'
 import Portfolio from 'Models/Portfolio'
 
@@ -5,7 +7,7 @@ import Portfolio from 'Models/Portfolio'
 
 
 export default {
-    view: function () {
+    view: () => {
         if (!Portfolio.error) return false
 
         return <div className="Message">

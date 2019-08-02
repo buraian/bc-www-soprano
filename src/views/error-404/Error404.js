@@ -1,5 +1,3 @@
 export default {
-    view: function () {
-        return 'Error404.js'
-    },
+    view: () => 'Error404.js',
 }

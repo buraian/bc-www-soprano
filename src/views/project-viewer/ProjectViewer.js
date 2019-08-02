@@ -11,7 +11,7 @@ import styles from './ProjectViewerStyles'
 let animate = {
     componentEnterSpeed: 200,
     componentExitSpeed: 300,
-    componentEnter: function (vnode) {
+    componentEnter: vnode => {
         anime({
             targets: vnode.dom,
             opacity: [0, 1],
@@ -19,23 +19,23 @@ let animate = {
             scaleX: [0.6, 1],
             scaleY: [0, 1],
             easing: 'linear',
-            duration: this.componentEnterSpeed,
+            duration: animate.componentEnterSpeed,
         })
     },
-    componentExit: function (vnode) {
+    componentExit: vnode => {
         anime({
             targets: vnode.dom,
             opacity: [1, 0],
             easing: 'easeInQuad',
-            duration: this.componentExitSpeed,
+            duration: animate.componentExitSpeed,
             loop: false,
         })
     },
-    componentUpdate: function (vnode, project) {
+    componentUpdate: (vnode, project) => {
         anime({
             targets: vnode.dom,
             backgroundColor: tinycolor(project.colors.dominant).setAlpha(0.9).toRgbString(),
-            duration: this.componentEnterSpeed,
+            duration: animate.componentEnterSpeed,
             easing: 'linear',
         })
     },
@@ -44,28 +44,28 @@ let animate = {
 
 export default {
     oninit: Portfolio.projectsLoadData(),
-    oncreate: function (vnode) {
+    oncreate: vnode => {
         animate.componentEnter(vnode)
         Portfolio.setState('isProjectViewerActive', true)
         Portfolio.setState('isFiltersEnabled', false)
     },
-    onupdate: function (vnode) {
+    onupdate: vnode => {
         const project = Portfolio.getProjectById(vnode.attrs.projectId)
 
         if (!Portfolio.isFetching && project) {
             animate.componentUpdate(vnode, project)
         }
     },
-    onbeforeremove: function (vnode) {
+    onbeforeremove: vnode => {
         animate.componentExit(vnode)
         Portfolio.setState('isProjectViewerActive', false)
         Portfolio.setState('isFiltersEnabled', true)
 
-        return new Promise(function (resolve) {
+        return new Promise(resolve => {
             setTimeout(resolve, animate.componentExitSpeed)
         })
     },
-    view: function (vnode) {
+    view: vnode => {
         const project = Portfolio.getProjectById(vnode.attrs.projectId)
 
         return <div className={styles.Wrapper()}>

@@ -174,7 +174,7 @@ class Portfolio {
         const array = this.screens
         const index = array.findIndex(item => item.screenId === screenId)
 
-        const dest = (function () {
+        const dest = (() => {
             if (offset < 0) {
                 return array[(array.length + (index + offset)) % array.length]
             }
@@ -266,11 +266,11 @@ class Portfolio {
             method: 'GET',
             url: paths.projects.list,
         })
-            .then(function (response) {
+            .then(response => {
                 self.projectsIsFetching = false
                 self.projectsHandleResponse(response)
             })
-            .catch(function (error) {
+            .catch(error => {
                 self.setState('error', 'TODO: write friendly message')
                 throw Error(error)
             })
@@ -304,11 +304,11 @@ class Portfolio {
             method: 'GET',
             url: paths.projectTypes.list,
         })
-            .then(function (response) {
+            .then(response => {
                 self.projectTypesIsFetching = false
                 self.projectTypesHandleResponse(response)
             })
-            .catch(function (error) {
+            .catch(error => {
                 self.setState('error', 'TODO: write friendly message')
                 throw Error(error)
             })

@@ -4,7 +4,7 @@ import headerStyles from 'Views/header/HeaderStyles'
 import metaStyles from 'Views/meta/MetaStyles'
 
 
-export default function (config) {
+export default config => {
     const defaults = {
         borderRadius: portfolioListStyles.wrapperBorderRadius,
         offsetBottom: portfolioListStyles.offsetBottom,

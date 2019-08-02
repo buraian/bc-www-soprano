@@ -5,7 +5,7 @@ import styles from './PortfolioFilterStyles'
 
 
 export default {
-    view: function (vnode) {
+    view: vnode => {
         let { checked, label, size } = vnode.attrs
         const value = slugify(label)
 
@@ -15,7 +15,7 @@ export default {
             label = label.slice(0, labelMaxChars - 1) + ellipsis
         }
 
-        const labelClass = function () {
+        const labelClass = () => {
             if (size === 'small') return styles.ButtonSmall()
             else if (size === 'large') return styles.ButtonLarge()
             else return styles.ButtonMedium()

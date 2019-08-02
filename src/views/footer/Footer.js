@@ -9,7 +9,7 @@ import email from './images/icon-email-light-on-dark.svg'
 
 
 export default {
-    view: function () {
+    view: () => {
         return (
             <footer className={stylesFooter.Wrapper()}>
 

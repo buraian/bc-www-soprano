@@ -10,12 +10,12 @@ let animate = {
     componentEnterSpeed: 300,
     componentEnterDelay: 500,
     componentExitSpeed: 300,
-    componentEnter: function (vnode) {
-        const begin = function () {
+    componentEnter: vnode => {
+        const begin = () => {
             vnode.dom.style.display = 'block'
             vnode.dom.style.visibility = 'visible'
         }
-        const complete = function () {
+        const complete = () => {
             vnode.dom.style.overflowY = 'auto'
         }
         anime({
@@ -23,20 +23,20 @@ let animate = {
             opacity: [0, 1],
             translateX: Portfolio.projectChangeDirection === 'reverse' ? ['-5%', 0] : ['5%', 0],
             easing: 'easeOutQuad',
-            duration: this.componentEnterSpeed,
+            duration: animate.componentEnterSpeed,
             loop: false,
-            delay: this.componentEnterDelay,
+            delay: animate.componentEnterDelay,
             begin: begin,
             changeBegin: begin,
             complete: complete,
             changeComplete: complete,
         })
     },
-    componentExit: function (vnode) {
-        const begin = function () {
+    componentExit: vnode => {
+        const begin = () => {
             vnode.dom.style.overflowY = 'hidden'
         }
-        const complete = function () {
+        const complete = () => {
             vnode.dom.style.removeProperty('visibility')
             vnode.dom.style.display = 'none'
         }
@@ -45,7 +45,7 @@ let animate = {
             opacity: [1, 0],
             translateX: Portfolio.projectChangeDirection === 'reverse' ? [0, '5%'] : [0, '-5%'],
             easing: 'easeInQuad',
-            duration: this.componentExitSpeed,
+            duration: animate.componentExitSpeed,
             loop: false,
             begin: begin,
             changeBegin: begin,
@@ -57,24 +57,24 @@ let animate = {
 
 
 export default {
-    oncreate: function (vnode) {
+    oncreate: vnode => {
         if (vnode.attrs.isActive) {
             animate.componentEnter(vnode)
         }
     },
-    onbeforeupdate: function (vnode, old) {
+    onbeforeupdate: (vnode, old) => {
         if (vnode.attrs.isActive && old.attrs.isActive) return false
 
         if (old.attrs.isActive) {
             animate.componentExit(old)
         }
     },
-    onupdate: function (vnode) {
+    onupdate: vnode => {
         if (vnode.attrs.isActive) {
             animate.componentEnter(vnode)
         }
     },
-    view: function (vnode) {
+    view: vnode => {
         const { image } = vnode.attrs
 
         return <li className={styles.Wrapper()}>

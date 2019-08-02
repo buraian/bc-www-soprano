@@ -18,33 +18,33 @@ import buttonClose       from './images/ProjectNav-button-close.svg'
 let animate = {
     componentEnterSpeed: 200,
     componentExitSpeed: 300,
-    componentEnter: function (vnode) {
+    componentEnter: vnode => {
         anime({
             targets: vnode.dom,
             translateY: ['-100%', 0],
             easing: 'easeOutQuad',
-            duration: this.componentEnterSpeed,
+            duration: animate.componentEnterSpeed,
             loop: false,
-            begin: function () {
+            begin: () => {
                 // TODO: Fix. Currently not working with site's Asynchronous Portfolio
                 //       setup. (vnode.dom doesn't exist yet.)
                 vnode.dom.style.visibility = 'visible'
             },
         })
     },
-    componentExit: function (vnode) {
+    componentExit: vnode => {
         anime({
             targets: vnode.dom,
             translateY: [0, '-100%'],
             easing: 'easeInQuad',
-            duration: this.componentExitSpeed,
+            duration: animate.componentExitSpeed,
             loop: false,
-            complete: function () {
+            complete: () => {
                 vnode.dom.style.removeProperty('visibility')
             },
         })
     },
-    progressBar: function (vnode, width) {
+    progressBar: (vnode, width) => {
         anime({
             targets: vnode.dom,
             width: `${width}%`,
@@ -67,21 +67,21 @@ function handleKeydown (e) {
 
 export default {
     oninit: Portfolio.projectsLoadData(),
-    oncreate: function (vnode) {
+    oncreate: vnode => {
         document.addEventListener('keydown', handleKeydown)
         if (!Portfolio.projectsIsFetching) {
             animate.componentEnter(vnode)
         }
     },
-    onbeforeremove: function (vnode) {
+    onbeforeremove: vnode => {
         document.removeEventListener('keydown', handleKeydown)
         animate.componentExit(vnode)
 
-        return new Promise(function (resolve) {
+        return new Promise(resolve => {
             setTimeout(resolve, animate.componentExitSpeed)
         })
     },
-    view: function (vnode) {
+    view: vnode => {
         if (Portfolio.projectsIsFetching) return false
 
         const { projectId, screenId } = vnode.attrs

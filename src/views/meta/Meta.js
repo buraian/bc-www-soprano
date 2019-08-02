@@ -19,7 +19,7 @@ import webpack    from './images/i-love-webpack.svg'
 
 
 export default {
-    view: function () {
+    view: () => {
         return (
             <div className={styles.Meta()}>
                 <div className={styles.Container()}>

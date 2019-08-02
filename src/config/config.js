@@ -12,7 +12,7 @@ const breakpoints = {
     'desktopLarge':    { 'min-width': 1921, 'max-width': 2560 },
 }
 
-const pxToEm = function (value, size = globalFontSize) {
+const pxToEm = (value, size = globalFontSize) => {
     return value / size
 }
 
