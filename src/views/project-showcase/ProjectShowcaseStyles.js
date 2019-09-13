@@ -1,4 +1,5 @@
 import { css } from 'emotion'
+import projectOverviewStyles from 'Views/project-overview/ProjectOverviewStyles'
 
 
 class ProjectShowcase {
@@ -16,7 +17,7 @@ class ProjectShowcase {
         return css`
             float: left;
             height: 100%;
-            width: calc(99.9% * 3/4);
+            width: calc(99.9% - ${projectOverviewStyles.containerWidth.default}px);
         `
     }
 }

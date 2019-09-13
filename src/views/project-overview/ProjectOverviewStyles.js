@@ -1,15 +1,18 @@
 import { css } from 'emotion'
+import tinycolor from 'tinycolor2'
 import typography from 'Config/typography'
 
 
 class ProjectOverviewStyles {
     constructor () {
-        this.groupPaddingLeft = 10
+        this.containerWidth = {
+            default: 330,
+        }
         this.largeBodyFont = 40
         this.images = {
             headingDecorator: {
-                height: 21,
-                width: 44,
+                height: 4,
+                width: 310,
             },
             roleInsigniaActive: {
                 height: 39,
@@ -19,14 +22,12 @@ class ProjectOverviewStyles {
                 height: 22,
                 width: 16,
             },
-
         }
     }
 
     Body () {
         return css`
             font-size: 14px;
-            padding-left: ${this.groupPaddingLeft}px;
         `
     }
 
@@ -59,22 +60,21 @@ class ProjectOverviewStyles {
 
     Heading () {
         return css`
-            border-radius: 2px;
-            display: inline-block;
-            font-size: 14px;
-            height: 21px;
+            display: block;
+            font-family: ${typography.title};
+            font-size: 21px;
             line-height: 1;
             margin-bottom: 8px;
-            padding: 3px ${this.groupPaddingLeft}px;
+            padding-bottom: 3px;
             position: relative;
             text-transform: uppercase;
 
             svg {
+                bottom: 0;
                 height: ${this.images.headingDecorator.height}px;
-                left: calc(100% - 3px);
+                left: 0;
                 position: absolute;
-                top: 0;
-                width: ${this.images.headingDecorator.width}px;
+                width: 100%;
             }
         `
     }
@@ -104,9 +104,13 @@ class ProjectOverviewStyles {
 
     ProjectType () {
         return css`
-            font-size: 21px;
-            font-style: italic;
-            margin-bottom: 1.2em;
+            background-color: ${tinycolor({ h: 0, s: 0, l: 10 }).toString()};
+            border-radius: 3px;
+            display: inline-block;
+            font-size: 18px;
+            margin-bottom: 1.5em;
+            padding: 2px 12px 4px;
+            text-transform: uppercase;
         `
     }
 
@@ -159,7 +163,7 @@ class ProjectOverviewStyles {
     Roles () {
         return css`
             font-family: ${typography.display};
-            font-size: 2.25vw;
+            font-size: 36px;
             line-height: 1;
             position: relative;
             text-transform: uppercase;
@@ -185,7 +189,7 @@ class ProjectOverviewStyles {
     Title () {
         return css`
             font-family: ${typography.display};
-            font-size: 3vw;
+            font-size: 48px;
             letter-spacing: -1px;
             line-height: 0.9;
             margin-bottom: .3rem;
@@ -197,10 +201,10 @@ class ProjectOverviewStyles {
             float: left;
             font-family: ${typography.monospace};
             font-weight: bold;
-            padding: 84px 0 0 50px;
+            padding: 84px 40px 0 50px;
             position: relative;
             will-change: color, opacity, transform;
-            width: calc(99.9% * 1/4);
+            width: ${this.containerWidth.default}px;
             z-index: 1;
         `
     }

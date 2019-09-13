@@ -81,8 +81,7 @@ export default {
                 {/* Roles */}
                 <div className={cx(styles.Group(), styles.RolesWrapper())}>
                     <div className={styles.Heading()} style={{
-                        backgroundColor: project.colors.primary,
-                        color: project.colors.dominant,
+                        color: project.colors.primary,
                     }}>
                         {m.trust(replaceSVGFill(headingDecorator, project.colors.primary))}
                         Roles
@@ -95,8 +94,7 @@ export default {
                     ? (
                         <div className={cx(styles.Group(), styles.FeatureWrapper())}>
                             <div className={styles.Heading()} style={{
-                                backgroundColor: project.colors.primary,
-                                color: project.colors.dominant,
+                                color: project.colors.primary,
                             }}>
                                 {m.trust(replaceSVGFill(headingDecorator, project.colors.primary))}
                                 Features
@@ -117,8 +115,7 @@ export default {
                     ? (
                         <div className={cx(styles.Group(), styles.TechWrapper())}>
                             <div className={styles.Heading()} style={{
-                                backgroundColor: project.colors.primary,
-                                color: project.colors.dominant,
+                                color: project.colors.primary,
                             }}>
                                 {m.trust(replaceSVGFill(headingDecorator, project.colors.primary))}
                                 Tech
@@ -142,8 +139,7 @@ export default {
                         ? (
                             <div className={cx(styles.Group(), styles.LinesOfCodeWrapper())}>
                                 <div className={styles.Heading()} style={{
-                                    backgroundColor: project.colors.primary,
-                                    color: project.colors.dominant,
+                                    color: project.colors.primary,
                                 }}>
                                     {m.trust(replaceSVGFill(headingDecorator, project.colors.primary))}
                                     Total Lines of Code
@@ -159,8 +155,7 @@ export default {
                         ? (
                             <div className={cx(styles.Group(), styles.YearPublishedWrapper())}>
                                 <div className={styles.Heading()} style={{
-                                    backgroundColor: project.colors.primary,
-                                    color: project.colors.dominant,
+                                    color: project.colors.primary,
                                 }}>
                                     {m.trust(replaceSVGFill(headingDecorator, project.colors.primary))}
                                     Year Completed

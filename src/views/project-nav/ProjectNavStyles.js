@@ -8,13 +8,13 @@ import metaStyles from 'Views/meta/MetaStyles'
 class ProjectNavStyles {
     constructor () {
         this.images = {
-            background:  { height: 52, width: 307 },
-            close:       { height: 30, width:  56 },
-            counter:     { height: 30, width:  62 },
-            nextProject: { height: 14, width:  35 },
-            prevProject: { height: 14, width:  35 },
-            nextScreen:  { height: 30, width:  62 },
-            prevScreen:  { height: 30, width:  62 },
+            background:  { height: 52, width: 307 }, // eslint-disable-line key-spacing
+            close:       { height: 30, width:  56 }, // eslint-disable-line key-spacing
+            counter:     { height: 30, width:  62 }, // eslint-disable-line key-spacing
+            nextProject: { height: 14, width:  35 }, // eslint-disable-line key-spacing
+            prevProject: { height: 14, width:  35 }, // eslint-disable-line key-spacing
+            nextScreen:  { height: 30, width:  62 }, // eslint-disable-line key-spacing
+            prevScreen:  { height: 30, width:  62 }, // eslint-disable-line key-spacing
         }
         this.wrapperHeight = this.images.background.height
         this.wrapperWidth = this.images.background.width
@@ -64,9 +64,10 @@ class ProjectNavStyles {
 
     Counter () {
         return css`
-            color: ${tinycolor({ h: 0, s: 0, l: 40 }).toString()};
+            color: ${tinycolor({ h: 0, s: 0, l: 100 }).toString()};
             font-family: ${typography.monospace};
             left: 116px;
+            text-shadow: 0 0 5px ${tinycolor({ h: 0, s: 0, l: 100, a: 0.5 }).toString()};
 
             &,
             svg {
