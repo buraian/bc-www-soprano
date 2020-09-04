@@ -17,7 +17,7 @@
   "dependencies": {
     "animejs": "3.1.0",
     "emotion": "10.0.9",
-    "mithril": "2.0.1",
+    "mithril": "2.0.3",
     "tinycolor2": "1.4.1",
     "underscore.string": "3.3.5"
   },
